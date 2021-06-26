@@ -35,6 +35,6 @@ add the jest test framework to the package.json
   },
 ```
 
-# Author 
+## Author 
 
 Okori Mccalla
