@@ -1,6 +1,6 @@
-# Virtual pets in javascript 
+# Virtual Pet Application
 
-This is a coding exercise, the aim of which is to create virtual pets which meet the below criteria :
+Creation of a virtual pet which meets some fun criteria:
 
 You can give them a name
 
@@ -18,6 +18,21 @@ If your pet gets too hungry or unfit, it will DIE 💀
 
 If your pet gets to 30 days old it will DIE 😢
 
-## Languages 
+## Prerequisites
 
-- Javascript
+Jest testing framework
+```
+npm install -D jest
+```
+## Installing
+
+initialise a node project from the command line
+
+```
+npm init virtual-pet
+```
+add the jest test framework to the package.json
+
+# Author 
+
+Okori Mccalla
