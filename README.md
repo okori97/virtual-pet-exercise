@@ -29,6 +29,12 @@ npm init virtual-pet
 ```
 add the jest test framework to the package.json
 
+```
+"scripts": {
+    "test": "jest"
+  },
+```
+
 # Author 
 
 Okori Mccalla
