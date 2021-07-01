@@ -15,3 +15,14 @@ describe("constructor", () => {
     });
 
 });
+
+describe("constructor", () => {
+    it("It creates an age property", () => {
+        const pet = new Pet('Fido');
+
+        expect(pet.age).toEqual(0);
+    });
+
+  
+    
+});
