@@ -1,28 +1,62 @@
-const { Pet } = require('../src/pet');
+const  Pet  = require('../src/pet');
 
-describe("constructor", () => {
+beforeEach(() => {
+    pet = new Pet('Fido');
+})
+
+describe("Create a Pet", () => {
     it("returns an object", () => {
         expect(new Pet("Akira")).toBeInstanceOf(Object);
 
     });
-});
 
-describe("constructor", () => {
     it("it sets the name property", () => {
-        const pet = new Pet('Fido');
-
+        let pet = new Pet('Fido');
         expect(pet.name).toEqual('Fido');
     });
 
-});
-
-describe("constructor", () => {
     it("It creates an age property", () => {
-        const pet = new Pet('Fido');
-
         expect(pet.age).toEqual(0);
     });
 
-  
-    
+    it("It creates an hunger property", () => {
+        expect(pet.hunger).toEqual(0);
+    });
+
+    it("It creates an fitness property and sets it to 10", () => {
+        expect(pet.fitness).toEqual(10);
+    });
+});
+
+
+
+describe("Growing up", () => {
+
+    it("growUp() increases age by 1", () => {
+        let pet = new Pet('Fido');
+        pet.growUp();
+        expect(pet.age).toEqual(1);
+        pet.growUp();
+        expect(pet.age).toEqual(2);
+        pet.growUp();
+        expect(pet.age).toEqual(3);
+    });
+
+    it("Deceases fitness by 3", () => {
+        pet.growUp();
+        expect(pet.fitness).toEqual(7);
+        pet.growUp();
+        expect(pet.fitness).toEqual(4);
+        pet.growUp();
+        expect(pet.fitness).toEqual(1);
+    });
+
+        it("Increases hunger by 5", () => {
+            pet.growUp();
+            expect(pet.hunger).toEqual(5);
+            pet.growUp();
+            expect(pet.hunger).toEqual(10);
+            pet.growUp();
+            expect(pet.hunger).toEqual(15);
+        })
 });
