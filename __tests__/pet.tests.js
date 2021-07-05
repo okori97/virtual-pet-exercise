@@ -59,4 +59,24 @@ describe("Growing up", () => {
             pet.growUp();
             expect(pet.hunger).toEqual(15);
         })
+
+});
+
+describe("Go for a walk", () => {
+    
+    it("increases fitness by 4", () => {
+        pet.growUp();
+        pet.growUp();
+        pet.walk();
+        expect(pet.fitness).toEqual(8);
+    })
+
+    it("Fitness level should not increase past the set limit", () => {
+        pet.walk();
+        expect(pet.fitness).toEqual(10);
+        pet.walk();
+        pet.walk();
+        pet.walk();
+        expect(pet.fitness).toEqual(10);
+    })
 });

@@ -1,4 +1,5 @@
 
+var MAXFITNESS = 10;
 
 function Pet(name) {
     this.name = name;
@@ -14,5 +15,13 @@ Pet.prototype.growUp = function(){
     this.hunger += 5;
     this.fitness -= 3;
 }
+
+Pet.prototype.walk = function(){
+    this.fitness += 4;
+    if (this.fitness > MAXFITNESS) {
+        this.fitness = 10;
+    }  
+}
+
 
 module.exports = Pet; 
