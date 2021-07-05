@@ -1,5 +1,6 @@
 
 var MAXFITNESS = 10;
+var STARVATION = 0;
 
 function Pet(name) {
     this.name = name;
@@ -21,6 +22,13 @@ Pet.prototype.walk = function(){
     if (this.fitness > MAXFITNESS) {
         this.fitness = 10;
     }  
+}
+
+Pet.prototype.feed = function(){
+    this.hunger -= 3;
+    if (this.hunger < STARVATION) {
+        this.hunger = 0;
+    }
 }
 
 

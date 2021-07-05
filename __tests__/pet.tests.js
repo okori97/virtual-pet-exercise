@@ -80,3 +80,15 @@ describe("Go for a walk", () => {
         expect(pet.fitness).toEqual(10);
     })
 });
+
+describe("Eating food", () => {
+
+    it("should decrease hunger by 3", () => {
+        pet.growUp();
+        pet.feed();
+        expect(pet.hunger).toEqual(2);
+        pet.growUp();
+        pet.feed();
+        expect(pet.hunger).toEqual(4);
+    }) 
+});
