@@ -92,3 +92,36 @@ describe("Eating food", () => {
         expect(pet.hunger).toEqual(4);
     }) 
 });
+
+describe("Check up", () => {
+
+    it("should return 'I am hungry' if hunger is equal or greater than 5", () => {
+        pet.growUp();
+        expect(pet.checkUp()).toBe("I am hungry")
+    })
+    it("should return 'I need a walk' if fitness is equal or less than 3", () => {
+        pet.growUp();
+        pet.growUp();
+        pet.growUp();
+        pet.feed();
+        pet.feed();
+        pet.feed();
+        pet.feed();
+        
+        expect(pet.checkUp()).toBe("I need a walk")
+    })
+    it("should return 'I am hungry AND I need a walk' if both above conditions are true", () => {
+        pet.growUp();
+        pet.growUp();
+        pet.growUp();
+        pet.feed();
+        pet.feed();
+        
+        expect(pet.checkUp()).toBe("I am hungry AND I need a walk")
+    })
+    it("should return 'I feel great!' if none of the above are true", () => {
+        
+        expect(pet.checkUp()).toBe("I feel great!")
+    })
+
+});

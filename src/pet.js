@@ -1,6 +1,10 @@
 
 var MAXFITNESS = 10;
 var STARVATION = 0;
+const is_Hungry_And_Unfit_Statement = `I am hungry AND I need a walk`;
+const is_Unfit_Statement = `I need a walk`;
+const is_Hungry_Statement = `I am hungry`;
+
 
 function Pet(name) {
     this.name = name;
@@ -29,7 +33,22 @@ Pet.prototype.feed = function(){
     if (this.hunger < STARVATION) {
         this.hunger = 0;
     }
+    
 }
 
+
+Pet.prototype.checkUp = function() {
+
+    if (this.hunger >= 5 && this.fitness <= 3 ) {
+        return is_Hungry_And_Unfit_Statement;
+    } else if (this.hunger >= 5) {
+        return is_Unfit_Statement;
+    } else if (this.fitness <= 3) {
+        return is_Hungry_Statement;
+    } else {
+        return `I feel great`;
+    }
+
+}
 
 module.exports = Pet; 
