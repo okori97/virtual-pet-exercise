@@ -42,13 +42,26 @@ Pet.prototype.checkUp = function() {
     if (this.hunger >= 5 && this.fitness <= 3 ) {
         return is_Hungry_And_Unfit_Statement;
     } else if (this.hunger >= 5) {
-        return is_Unfit_Statement;
-    } else if (this.fitness <= 3) {
         return is_Hungry_Statement;
+    } else if (this.fitness < 3) {
+        return is_Unfit_Statement;
     } else {
-        return `I feel great`;
+        return `I feel great!`;
     }
 
+}
+
+Pet.prototype.isAlive = function(){
+
+    if(this.hunger >= 10) {
+        return false;
+    } else if (this.fitness <= 0) {
+        return false;
+    } else if (Pet.age >= 30) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 module.exports = Pet; 

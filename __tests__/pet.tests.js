@@ -125,3 +125,31 @@ describe("Check up", () => {
     })
 
 });
+
+describe("Death conditions", () => {
+
+    it("should return false if fitness fall to 0 or less", () => {
+        pet.growUp();
+        pet.growUp();
+        pet.growUp();
+        pet.growUp();
+        expect(pet.isAlive()).toBe(false)
+    })
+
+    it("should return false if hunger rises to 10 or more", () => {
+        pet.growUp()
+        pet.growUp()
+        expect(pet.isAlive()).toBe(false)
+    })
+    it("should die if it grows too old (30)", () => {
+        const MAX_AGE = 30;
+
+        for(var i = 0; i < MAX_AGE; i++) {
+            pet.growUp();
+            pet.feed();
+            pet.walk();
+        }
+
+        expect(pet.isAlive()).toBe(false)
+    }) 
+});
