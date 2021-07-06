@@ -1,9 +1,6 @@
 
 var MAXFITNESS = 10;
 var STARVATION = 0;
-const is_Hungry_And_Unfit_Statement = `I am hungry AND I need a walk`;
-const is_Unfit_Statement = `I need a walk`;
-const is_Hungry_Statement = `I am hungry`;
 
 
 function Pet(name) {
@@ -11,39 +8,58 @@ function Pet(name) {
     this.age = 0;
     this.hunger = 0;
     this.fitness = 10;
-   
+
+}
+
+Pet.prototype = {
+    get isAlive() {
+        return this.age < 30 && this.hunger < 10 && this.fitness > 0;
     }
+}
 
-
-Pet.prototype.growUp = function(){
+Pet.prototype.growUp = function () {
+    if (!this.isAlive) { throw "Your pet is no longer alive :("}
     this.age += 1;
     this.hunger += 5;
     this.fitness -= 3;
 }
 
-Pet.prototype.walk = function(){
-    this.fitness += 4;
-    if (this.fitness > MAXFITNESS) {
-        this.fitness = 10;
-    }  
-}
+Pet.prototype.walk = function () {
+    if (!this.isAlive) { throw "Your pet is no longer alive :("}
 
-Pet.prototype.feed = function(){
-    this.hunger -= 3;
-    if (this.hunger < STARVATION) {
-        this.hunger = 0;
+    if (this.fitness > 7) {
+        return this.fitness = 10;
     }
-    
+    this.fitness += 4;
+}
+
+Pet.prototype.feed = function () {
+    if (!this.isAlive) { throw "Your pet is no longer alive :("}
+
+    if (this.hunger < 3) {
+        return this.hunger = 0;
+    } else {
+        return this.hunger -= 3;
+    }
 }
 
 
-Pet.prototype.checkUp = function() {
 
-    if (this.hunger >= 5 && this.fitness <= 3 ) {
+Pet.prototype.checkUp = function () {
+    if (!this.isAlive) { throw "Your pet is no longer alive :("}
+
+    const is_Hungry_And_Unfit_Statement = `I am hungry AND I need a walk`;
+    const is_Unfit_Statement = `I need a walk`;
+    const is_Hungry_Statement = `I am hungry`;
+    const Hungry_And_Unfit = this.hunger >= 5 && this.fitness <= 3;
+    const isHungry = this.hunger >= 5;
+    const isUnfit = this.fitness < 3;
+
+    if (Hungry_And_Unfit) {
         return is_Hungry_And_Unfit_Statement;
-    } else if (this.hunger >= 5) {
+    } else if (isHungry) {
         return is_Hungry_Statement;
-    } else if (this.fitness < 3) {
+    } else if (isUnfit) {
         return is_Unfit_Statement;
     } else {
         return `I feel great!`;
@@ -51,17 +67,5 @@ Pet.prototype.checkUp = function() {
 
 }
 
-Pet.prototype.isAlive = function(){
 
-    if(this.hunger >= 10) {
-        return false;
-    } else if (this.fitness <= 0) {
-        return false;
-    } else if (Pet.age >= 30) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-module.exports = Pet; 
+module.exports = Pet;
