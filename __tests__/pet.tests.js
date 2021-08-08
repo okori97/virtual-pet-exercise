@@ -200,5 +200,24 @@ describe("Error checks", () => {
         expect(pet.checkUp).toThrow('Your pet is no longer alive :(');
     });
 })
+
+describe("Children - having a child", () => {
+    let pet;
+    beforeEach(() => {
+        pet = new Pet('Kaneda');
+    });
+    it("should have a children array", () => {
+        expect(pet.children).toBeInstanceOf(Array);
+    });
+
+    it("should be able to make child pet" , () => {
+        expect(pet.haveChild("baby")).toBeInstanceOf(Object);
+    })
+    it("should add child pet to children array" , () => {
+        pet.haveChild("baby");
+        expect(pet.children).toContainEqual({"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "baby"})
+    })
+
+})
     
     

@@ -1,12 +1,12 @@
 # Virtual Pet Application
 
-Creation of a virtual pet which meets some fun criteria:
-
+Creation of a virtual pet which meets some fun criteria: canAge, canEat, canSleep, canDie, canGiveBirth etc
+This project was one of my MRC projects.
 
 ## Built Using
 
- * Node.js
- * Jest
+- Node.js
+- Jest
 
 ## Prerequisites
 
@@ -17,9 +17,11 @@ npm install
 ```
 
 Jest testing framework
+
 ```
 npm install -D jest
 ```
+
 ## Installing
 
 initialise a node project from the command line
@@ -27,6 +29,7 @@ initialise a node project from the command line
 ```
 npm init virtual-pet
 ```
+
 add the jest test framework to the package.json
 
 ```
@@ -35,6 +38,6 @@ add the jest test framework to the package.json
   },
 ```
 
-## Author 
+## Author
 
 Okori Mccalla

@@ -8,6 +8,7 @@ function Pet(name) {
     this.age = 0;
     this.hunger = 0;
     this.fitness = 10;
+    this.children = [];
 
 }
 
@@ -17,6 +18,11 @@ Pet.prototype = {
     }
 }
 
+Pet.prototype.haveChild = function (name) {
+    let child = new Pet(`${name}`);
+    this.children.push(child);
+    return child;
+}
 Pet.prototype.growUp = function () {
     if (!this.isAlive) { throw "Your pet is no longer alive :("}
     this.age += 1;
